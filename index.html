@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OneStop SmartCart Prototype</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <p class="eyebrow">CEN207 Business Concept Prototype</p>
+      <h1>OneStop <span>SmartCart</span></h1>
+      <p class="tagline">A clearer, faster checkout and delivery experience.</p>
+    </div>
+    <button class="cart-button" id="cartButton">Cart <span id="cartCount">0</span></button>
+  </header>
+
+  <main>
+    <section class="hero card">
+      <div>
+        <span class="pill">Prototype goal</span>
+        <h2>Reduce cart abandonment by removing checkout friction.</h2>
+        <p>SmartCart combines product comparison, guest checkout, transparent costs, delivery estimates and order tracking in one simple flow.</p>
+      </div>
+      <div class="hero-metrics">
+        <div><strong>Guest</strong><span>checkout</span></div>
+        <div><strong>Up-front</strong><span>costs</span></div>
+        <div><strong>Live-style</strong><span>tracking</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div><p class="eyebrow">Step 1</p><h2>Choose and compare products</h2></div>
+        <button class="secondary" id="compareButton">Compare selected</button>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <section class="compare-panel card hidden" id="comparePanel">
+      <div class="section-heading compact"><h2>Product comparison</h2><button class="text-button" id="closeCompare">Close</button></div>
+      <div id="compareContent"></div>
+    </section>
+
+    <section class="checkout-layout">
+      <div class="card">
+        <p class="eyebrow">Step 2</p>
+        <h2>Guest checkout</h2>
+        <p class="muted">No account required.</p>
+        <form id="checkoutForm">
+          <div class="form-grid">
+            <label>Full name<input id="fullName" type="text" placeholder="Alex Morgan" required /></label>
+            <label>Email<input id="email" type="email" placeholder="alex@example.com" required /></label>
+          </div>
+          <label>Delivery address<input id="address" type="text" placeholder="123 Example Street, Melbourne VIC" required /></label>
+
+          <fieldset>
+            <legend>Delivery option</legend>
+            <label class="delivery-option"><input type="radio" name="delivery" value="standard" checked /><span><strong>Standard</strong><small>4–6 business days</small></span><b>$6.95</b></label>
+            <label class="delivery-option"><input type="radio" name="delivery" value="express" /><span><strong>Express</strong><small>1–2 business days</small></span><b>$14.95</b></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Payment method</legend>
+            <div class="payment-row">
+              <label><input type="radio" name="payment" value="Card" checked /> Card</label>
+              <label><input type="radio" name="payment" value="PayPal" /> PayPal</label>
+              <label><input type="radio" name="payment" value="Apple Pay" /> Apple Pay</label>
+            </div>
+          </fieldset>
+
+          <button class="primary full-width" type="submit">Place order</button>
+        </form>
+      </div>
+
+      <aside class="card order-summary">
+        <p class="eyebrow">Transparent pricing</p>
+        <h2>Order summary</h2>
+        <div id="summaryItems" class="summary-items"><p class="muted">Your cart is empty.</p></div>
+        <div class="summary-line"><span>Subtotal</span><strong id="subtotal">$0.00</strong></div>
+        <div class="summary-line"><span>Shipping</span><strong id="shipping">$6.95</strong></div>
+        <div class="summary-line total"><span>Total</span><strong id="total">$6.95</strong></div>
+        <p class="eta" id="eta">Estimated delivery: calculated at checkout.</p>
+      </aside>
+    </section>
+
+    <section class="card hidden" id="confirmation">
+      <p class="eyebrow">Step 3</p>
+      <h2>Order confirmed 🎉</h2>
+      <p id="confirmationText"></p>
+      <div class="tracking">
+        <div class="tracking-step complete"><span>1</span><div><strong>Order placed</strong><small>Payment confirmed</small></div></div>
+        <div class="tracking-step active"><span>2</span><div><strong>Preparing order</strong><small>Warehouse processing</small></div></div>
+        <div class="tracking-step"><span>3</span><div><strong>Shipped</strong><small>Tracking becomes available</small></div></div>
+        <div class="tracking-step"><span>4</span><div><strong>Delivered</strong><small>Order completed</small></div></div>
+      </div>
+      <button class="secondary" id="demoAdvance">Advance demo tracking</button>
+    </section>
+  </main>
+
+  <footer>OneStop SmartCart — CEN207 Assessment 2 prototype</footer>
+  <script src="app.js"></script>
+</body>
+</html>
